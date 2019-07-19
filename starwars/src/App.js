@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Header, Image, Table } from "semantic-ui-react";
 import "./App.css";
 import Card from "./components/CharacterCard/Card";
 
@@ -23,11 +24,20 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="card-container">
-        {people.map((person, index) => (
-          <Card person={person} key={index} />
-        ))}
-      </div>
+      <Table basic="very" celled collapsing>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Character</Table.HeaderCell>
+            <Table.HeaderCell>Info</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {people.map((person, index) => {
+            return <Card person={person} key={index} />;
+          })}
+        </Table.Body>
+      </Table>
     </div>
   );
 };

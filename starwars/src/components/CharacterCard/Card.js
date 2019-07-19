@@ -1,10 +1,18 @@
 import React from "react";
-import Name from "./Name";
+import { prependOnceListener } from "cluster";
+import { Header, Image, Table } from "semantic-ui-react";
 
 export default function Card({ person }) {
   return (
-    <div>
-      <Name person={person} />
-    </div>
+    <Table.Row>
+      <Table.Cell>
+        <Header as="h4">
+          <Header.Content>{person.name}</Header.Content>
+        </Header>
+      </Table.Cell>
+      <Table.Cell>
+        <Table.Cell.Content>{person.name}</Table.Cell.Content>
+      </Table.Cell>
+    </Table.Row>
   );
 }
