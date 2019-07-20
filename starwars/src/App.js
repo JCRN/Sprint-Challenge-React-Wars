@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Image } from "semantic-ui-react";
+import img1 from "./assets/empire.png";
 
 import "./App.css";
 import "./stylesheets/main.scss";
@@ -27,6 +28,7 @@ const App = () => {
           <Table.Row className="header-row">
             <Table.HeaderCell className="header-name">Name</Table.HeaderCell>
             <Table.HeaderCell className="header-gender">
+              <Image src={img1} />
               Gender
             </Table.HeaderCell>
             <Table.HeaderCell className="header-year">
