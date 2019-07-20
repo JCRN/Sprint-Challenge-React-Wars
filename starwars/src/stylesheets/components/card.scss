@@ -1,52 +1,6 @@
-.card-container {
+.person-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid black;
-  width: 30vw;
-
-  .gender-container {
-    display: flex;
-    align-items: center;
-
-    .gender {
-      margin-left: 15px;
-    }
-  }
-
-  .year-container {
-    display: flex;
-    align-items: center;
-
-    .year {
-      margin-left: 15px;
-    }
-  }
-
-  .height-container {
-    display: flex;
-    align-items: center;
-
-    .height {
-      margin-left: 15px;
-    }
-  }
-
-  .hair-color-container {
-    display: flex;
-    align-items: center;
-
-    .hair-color {
-      margin-left: 15px;
-    }
-  }
-
-  .eye-color-container {
-    display: flex;
-    align-items: center;
-
-    .eye-color {
-      margin-left: 15px;
-    }
-  }
+  border-top: 0.5px solid whitesmoke;
+  border-bottom: 0.5px solid whitesmoke;
+  width: 100vw;
 }
