@@ -1,19 +1,55 @@
-import React from 'react';
-import './App.css';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Table, Image } from "semantic-ui-react";
+import img1 from "./assets/empire.png";
+
+import "./App.css";
+import "./stylesheets/main.scss";
+import Card from "./components/Card";
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [people, setPeople] = useState([]);
 
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  useEffect(() => {
+    axios
+      .get(`https://swapi.co/api/people/`)
+      .then(result => {
+        console.log(result);
+        const data = result.data.results;
+        setPeople(data);
+      })
+      .catch(error => console.log("ERROR: ", error));
+  }, []);
 
   return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
+    <div className="app-container">
+      <Table celled>
+        <Table.Header>
+          <Table.Row className="header-row">
+            <Table.HeaderCell className="header-name">Name</Table.HeaderCell>
+            <Table.HeaderCell className="header-gender">
+              <Image src={img1} />
+              Gender
+            </Table.HeaderCell>
+            <Table.HeaderCell className="header-year">
+              Birth Year
+            </Table.HeaderCell>
+            <Table.HeaderCell className="header-height">
+              Height
+            </Table.HeaderCell>
+            <Table.HeaderCell className="header-eyes">
+              Eye Color
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {people.map((person, index) => (
+            <Card person={person} key={index} />
+          ))}
+        </Table.Body>
+      </Table>
     </div>
   );
-}
+};
 
 export default App;

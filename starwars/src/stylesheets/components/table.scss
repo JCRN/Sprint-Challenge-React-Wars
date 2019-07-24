@@ -1,0 +1,25 @@
+table {
+  height: 100vh;
+  width: 100vw;
+  color: whitesmoke;
+  font-size: 1.25rem;
+
+  tr {
+    display: flex;
+    justify-items: space-evenly;
+  }
+
+  th {
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+    margin: 5% 25px 25px 25px;
+  }
+
+  td {
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+    margin: 25px;
+  }
+}
